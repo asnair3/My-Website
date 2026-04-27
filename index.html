@@ -1,36 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>COMP110 Data Analysis</title>
     <style>
-        body { font-family: sans-serif; line-height: 1.6; max-width: 800px; margin: auto; padding: 20px; }
-        img { max-width: 100%; height: auto; border: 1px solid #ccc; margin: 20px 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; max-width: 900px; margin: auto; padding: 40px; color: #333; }
+        h1 { border-bottom: 2px solid #4B9CD3; padding-bottom: 10px; color: #13294B; }
+        h2 { color: #4B9CD3; margin-top: 30px; border-left: 5px solid #4B9CD3; padding-left: 15px; }
+        h3 { color: #13294B; margin-top: 25px; }
+        p { margin-bottom: 1.5em; text-align: justify; }
+        .img-container { text-align: center; background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; border: 1px solid #eee; }
+        img { max-width: 100%; height: auto; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+        img:hover { transform: scale(1.02); }
+        .finding-box { font-style: italic; color: #555; background: #f0f7ff; padding: 15px; border-left: 4px solid #4B9CD3; }
     </style>
 </head>
 <body>
-    <h1>EX09-Data Analysis for Continuous Improvement</h1>
+    <h1>EX09: Data Analysis for Continuous Improvement</h1>
     
     <h2>Project Summary</h2>
-    <p>The integrated analysis of the course survey data, processed through custom columnar and concat utilities, provides a data-driven foundation that supports the implementation of specialized conceptual walkthrough videos. By utilizing convert_columns_to_int to transform qualitative survey responses into a quantitative format, the resulting relational analysis reveals a clear positive correlation between perceived course difficulty and weekly time commitment. This suggests that students are not struggling due to a lack of individual effort, but rather due to the inherent complexity of the material.
-    <p>Because the categorical distribution of the data confirms a high density of students from diverse majors beyond computer science, the findings indicate that these individuals may lack the technical mental models required for rapid mastery. 
-    <p>Consequently, the data suggests that these students are already maximizing their "time on task" and would benefit more from targeted conceptual frameworks than from simply increasing their study hours. While the evidence supports the intervention, it also highlights the necessity of balancing new resources with existing workloads. By addressing the specific needs of this non-major population through structured visual aids, the course can better facilitate proficiency without exacerbating the high time demands already documented in the workload distribution.
-</p>
+    <p>
+        The integrated analysis of the course survey data, processed through custom <code>columnar</code> and <code>concat</code> utilities, provides a data-driven foundation that supports the implementation of specialized conceptual walkthrough videos. By utilizing <code>convert_columns_to_int</code> to transform qualitative survey responses into a quantitative format, the resulting relational analysis reveals a clear positive correlation between perceived course difficulty and weekly time commitment. 
+    </p>
+    <p>
+        Consequently, the data suggests that students are already maximizing their "time on task" and would benefit more from targeted conceptual frameworks than from simply increasing their study hours. By addressing the specific needs of this non-major population through structured visual aids, the course can better facilitate proficiency without exacerbating the high time demands already documented in the workload distribution.
+    </p>
 
-    <h2>Visualizations</h2>
-    <h3>Major Distribution</h3>
-    <img src="major_distribution.png" alt="Chart showing student majors">
+    <h2>Visualizations & Findings</h2>
     
-    <h3>Weekly Study Hours</h3>
-    <img src="hours_histogram.png" alt="Histogram of study hours">
+    <h3>1. Major Distribution</h3>
+    <div class="img-container">
+        <img src="major_distribution.png" alt="Chart showing student majors">
+    </div>
+    <p class="finding-box">
+        <strong>Finding:</strong> The categorical distribution of the data confirms a high density of students from diverse majors beyond computer science. This indicates that a large portion of the enrollment may lack the technical mental models required for rapid mastery, supporting the need for non-major focused interventions.
+    </p>
     
-    <h3>Difficulty vs. Time Spent</h3>
-    <img src="difficulty_scatter.png" alt="Scatter plot of difficulty vs hours">
+    <h3>2. Weekly Study Hours</h3>
+    <div class="img-container">
+        <img src="hours_histogram.png" alt="Histogram of study hours">
+    </div>
+    <p class="finding-box">
+        <strong>Finding:</strong> The workload histogram indicates a significant cluster of students spending over ten hours per week on coursework. This suggests that students who find the material most challenging are reaching a point of diminishing returns in terms of manual effort.
+    </p>
+    
+    <h3>3. Difficulty vs. Time Spent</h3>
+    <div class="img-container">
+        <img src="difficulty_scatter.png" alt="Scatter plot of difficulty vs hours">
+    </div>
+    <p class="finding-box">
+        <strong>Finding:</strong> There is a clear positive correlation between perceived difficulty and weekly hours. This refutes the idea that students struggle due to lack of effort; instead, it proves that the most challenged students are often those working the hardest.
+    </p>
 
     <h2>Final Conclusion</h2>
-    <p>The combined analysis of the anonymized survey data from both instructors’ sections, processed using custom data utilities like concat and convert_columns_to_int, reveals a clear positive correlation between perceived course difficulty and the total hours students invest each week. By using convert_columns_to_int to process survey responses, the resulting relational scatter plot reveals a clear positive correlation between perceived difficulty and weekly time commitment, suggesting that students are not struggling due to a lack of effort, but rather due to the complexity of the material itself. While the categorical distribution confirms that the course successfully reaches a diverse range of majors beyond Computer Science, the workload histogram indicates a significant cluster of students spending over ten hours per week on coursework. This suggests that students who find the material most challenging are already maximizing their personal effort and may be reaching a point of diminishing returns. Implementing specialized support initiatives, such as major-specific review sessions or technical walk-through videos, could create substantial value for these students by providing targeted conceptual frameworks rather than just encouraging more "time on task." 
-    <p>However, adopting this initiative involves significant trade-offs, such as the high "cost of production" for instructors and the potential for "information overload" if too many supplementary materials are added to an already rigorous workload. There is also a risk that providing too much starter code could inadvertently create a "crutch," potentially reducing the development of independent debugging skills which are essential for long-term success. To refine this idea in the future, the project should move toward longitudinal tracking to identify exactly which units, such as loops or memory management, trigger the highest spikes in difficulty. 
-    <p>Future refinements of this project should include longitudinal tracking of student interest levels and more granular data collection to identify exactly which tasks are consuming the most time, ensuring that future course interventions directly address the most significant conceptual hurdles. Future work should also include a comparative A/B test across different sections to measure if these videos actually lead to a measurable increase in "Understanding" scores, ensuring that instructional refinements are addressing the most significant conceptual hurdles without increasing the overall time burden on the student.
-
-</p>
+    <p>
+        The combined analysis of the anonymized survey data from both instructors’ sections reveals that students are not struggling due to a lack of effort, but rather due to the complexity of the material itself. Implementing specialized support initiatives, such as technical walk-through videos, could create substantial value by providing targeted conceptual frameworks rather than just encouraging more "time on task."
+    </p>
+    <p>
+        However, adopting this initiative involves significant trade-offs, such as the high "cost of production" for instructors and the risk that providing too much starter code could inadvertently create a "crutch," potentially reducing the development of independent debugging skills. 
+    </p>
+    <p>
+        Future refinements of this project should include longitudinal tracking of student interest levels and more granular data collection to identify exactly which units, such as loops or memory management, trigger the highest spikes in difficulty. Additionally, future work should include a comparative A/B test to measure if these videos lead to a measurable increase in "Understanding" scores without increasing the overall time burden on the student.
+    </p>
 </body>
 </html>
